@@ -1,9 +1,7 @@
 
 # Java Building Blocks
 
-## Java Class Structure
-
-### Classes vs Files
+## Java Classes vs Files
 
 Multiple classes are allowed to be defined in one file, but only one of the is allowed to be declared as `public.`
 
@@ -34,7 +32,7 @@ After compilation the resulted file will have the name `Fruit.class`.
 * Each file should contain only one class
 * The filename must match class name and `.java` extension
 
-### The main method
+## The entry point
 A program written in Java has it's entry point in `main()` method.
 ```java
 public static void main(String argc[]) {
