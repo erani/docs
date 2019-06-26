@@ -1,6 +1,3 @@
-[TOC]
-
-
 
 # Java Building Blocks
 
@@ -19,24 +16,39 @@ public class Apple extends Fruit {
     
 }
 
-// Following class definition not allowed to be public
+// !!! ERROR - Following class definition not allowed to be public
 public class Pear extends Fruit {
     
 }
 ```
-
-> It is recommended only one class to be defined per file
-
-### Class Structure
-1. Package statement
-2. Import statements
-3. Comments
-4. Class declaration {
-  a. Variables
-  b. Comments
-  c. Constructors
-  d. Methods
-  e. Nested classes
-  f. Nested interfaces
-  g. Enum
+The file name mast match the name of `public` class and  `.java` as extension.
+```java
+// File Fruit.java
+public class Fruit {
+	// ...
 }
+```
+After compilation the resulted file will have the name `Fruit.class`.
+
+**Summary**
+* Each file should contain only one class
+* The filename must match class name and `.java` extension
+
+### The main method
+A program written in Java has it's entry point in `main()` method.
+```java
+public static void main(String argc[]) {
+	// ...
+}
+```
+A non `public` or non `static` method with name `main()` is not considered entry point.
+The arguments of the method are also important, it should be an array of `String` which mean the following declarations are valid:
+* `String[] argc`
+* `String argc[]`
+* `String ... argc`
+
+**Summary**
+* The entry point method must be named `main()`
+* The method must be `public`
+* The method must be `static`
+* The method should accept only one argument, an array of `String`
