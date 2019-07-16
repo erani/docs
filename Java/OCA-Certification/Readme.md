@@ -52,6 +52,32 @@ The arguments of the method are also important, it should be an array of `String
 * The method should accept only one argument, an array of `String`
 
 ## Packages
+Java classes can be (and it is recommended) to be grouped in packages.
+In case the class does not have the `package` statement as first line then it is considered to be in `default` package.
+```java
+public class Apple {
+}
+```
+The above class is defined in `default` package. 
+
+And the following class is placed in `com.foo.fruit` package.
+
+```java
+package com.foo.fruit;
+
+public class Pear {
+}
+```
+The package name also represent the directory structure of the project. The above class `Pear` should be placed in `com/foo/fruit` directory relative to you root folder and the class `Apple` should be placed directly in root folder.
+
+### Name convention & rules
+Package names are written in all lower case to avoid conflict with the names of classes or interfaces.
+
+Companies use their reversed Internet domain name to begin their package names, for example, `com.fuitcompany.fruit` for a package named mypackage created by a programmer at `com.fuitcompany`.
+
+The allowed naming rule is the same as for variables.
+A package can be of any length of unicode letter or digit. It should begin with letter, dollar sign (`$`) or underscore (`_`).
+
 
 **TODO:** Rule for packge names.
 
