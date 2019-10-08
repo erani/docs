@@ -78,9 +78,6 @@ Companies use their reversed Internet domain name to begin their package names, 
 The allowed naming rule is the same as for variables.
 A package can be of any length of unicode letter or digit. It should begin with letter, dollar sign (`$`) or underscore (`_`).
 
-
-**TODO:** Rule for packge names.
-
 The package `java.lang` is auto imported and do not require explicit declaration.
 
 ### Wildcard
@@ -148,3 +145,25 @@ public class Fruit {
 	private java.sql.Date dbSavedDate;
 }
 ```
+
+## Objects
+### Constructors
+An object is created by invoking it's constructor.
+If no constructor is defined for object then a **default** one is used.
+
+The constructor looks like a method, but it has two key points:
+1. A contructor should have same name as class
+2. A constructor definition should not provide return type
+```java
+class Fruit {
+	public Fruit() {
+		// Initialization
+	}
+
+	public void Fruit() { // !!! Not a constructor, it's a method!
+		// Some code
+	}
+}
+```
+
+line 64
