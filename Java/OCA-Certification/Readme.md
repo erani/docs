@@ -78,9 +78,6 @@ Companies use their reversed Internet domain name to begin their package names, 
 The allowed naming rule is the same as for variables.
 A package can be of any length of unicode letter or digit. It should begin with letter, dollar sign (`$`) or underscore (`_`).
 
-
-**TODO:** Rule for packge names.
-
 The package `java.lang` is auto imported and do not require explicit declaration.
 
 ### Wildcard
@@ -148,3 +145,95 @@ public class Fruit {
 	private java.sql.Date dbSavedDate;
 }
 ```
+
+## Summary
+TODO: Missing the summary of the chapter!
+
+## Objects
+### Constructors
+An object is created by invoking it's constructor.
+If no constructor is defined for object then a **default** one is used.
+
+The constructor looks like a method, but it has two key points:
+1. A contructor should have same name as class
+2. A constructor definition should not provide return type
+```java
+class Fruit {
+	public Fruit() {
+		// Initialization
+	}
+
+	public void Fruit() { // !!! Not a constructor, it's a method!
+		// Some code
+	}
+}
+```
+
+### Instance Initializer Blocks
+An object can be initialized by *Block Initializer*.
+The *Block Initializer* is a sequence of code which is enclosed between brackets and is not part of any method.
+A class **can have multiple** *Block Initializers*.
+
+```java
+class Fruit {
+	{
+		// Fist initializer
+	}
+
+	{
+		// Second initializer
+	}
+}
+```
+
+Order of object initialization matter
+* Fields and instance initializer blocks are run in the order in which they appear.
+* The constructor is executed after all fields and initializer blocks are executed.
+
+```java
+public class Fruit {
+
+    Fruit() {
+        System.out.println("Constructor execution");
+    }
+
+    String color = "Yellow";
+
+    {
+        System.out.println("Initializer Block 1");
+        System.out.println(color);
+        System.out.println(weight); // Cannot access weight property, the initializer block is defined before property
+    }
+
+    double weight = 0.2;
+
+    {
+        System.out.println("Initializer Block 2");
+        System.out.println(color);
+        System.out.println(weight);
+    }
+
+    public static void main(String[] args) {
+        new Fruit();
+    }
+
+}
+```
+
+The above code with commented line `System.out.println(weight);` will produce:
+
+```terminal
+Initializer Block 1
+Yellow
+Initializer Block 2
+Yellow
+0.2
+Constructor execution
+```
+
+### Summary
+1. If no constructor is defined, then **default** constructor is used.
+2. A constructor should have same name as class and **no** return type.
+3. The order of initializer blocks **matter** 
+4. The code inside initializer block **cannot** refer to fields declared after the block.
+5. The constructor is execute after all iniliazer blocks and fields initialization.
