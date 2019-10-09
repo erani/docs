@@ -237,3 +237,45 @@ Constructor execution
 3. The order of initializer blocks **matter** 
 4. The code inside initializer block **cannot** refer to fields declared after the block.
 5. The constructor is execute after all iniliazer blocks and fields initialization.
+
+## Primitve Types
+Java define eight built-in data types also refered as primitve types:
+
+| Keyword | Type                  |
+|:--------|:----------------------|
+| boolean | true/false            |
+| byte    | 8-bit integer         |
+| short   | 16-bit integer        |
+| int     | 32-bit integer        |
+| long    | 64-bit integer        |
+| float   | 32-bit floating point |
+| double  | 64-bit floating point |
+| char    | 16-bit Unicode        |
+
+When the number is present in the code it is named *literal*. 
+By default value defined by literal is of type *int*.
+For example:
+
+```java
+long max = 3123456789; // Do not compile, the defined value is out of boundary for an int
+```
+A solution is to specify the type by adding `L` or `l` character which will indicate that is *Long*:
+```java
+long max = 3123456789L;
+```
+
+Java allow to specify numbers in different base.
+
+| Base        | Characters | Prefix   | Example      |
+|:------------|:-----------|:---------|:-------------|
+| Octal       | 0-7        | 0        | 017          |
+| Hexadecimal | 0-9, A-F   | 0X or 0x | 0xFF         |
+| Binary      | 0 and 1    | 0b or 0B | 0b11 or 0B11 |
+
+### Underscore in numbers (Java 7 feature)
+Starting with Java 7 it is possible to use underscore, `_` in order to simplify the read of numbers, like `1_000`.
+
+The underscore cannot be added:
+* At beginning of literal, `_1000.00`.
+* At end of literal, `1000.00_`.
+* Before and after decimal point, `1000_.00` or `1000._00`.
