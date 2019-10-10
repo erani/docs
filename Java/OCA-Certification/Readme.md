@@ -295,3 +295,25 @@ A reference point to an object by storing the memory address where the object is
 * The reference types can be assigned `null` value
 * Primitives do not have methods
 * All primitives has lowercase names
+
+## Declaring and Initializing Variables
+Declaration of variable require the type and name to be stated.
+```java
+int size;
+String name;
+```
+If variable is not initialized then default value is assigned.
+* For references it is `null`.
+* In case of primitives depend on the type, in case of `int` it will be zero (0).
+
+A variable can be initialized during declaration:
+```java
+int size = 10;
+String name = "John";
+```
+
+Multiple variables can be declared and initialized in the same statement:
+```java
+int size, length = 10;
+String firstName, lastName = "Doe";
+```
