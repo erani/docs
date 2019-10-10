@@ -279,3 +279,19 @@ The underscore cannot be added:
 * At beginning of literal, `_1000.00`.
 * At end of literal, `1000.00_`.
 * Before and after decimal point, `1000_.00` or `1000._00`.
+
+### Summary
+1. Java have 8 types of primitives.
+2. The default value defined by literal is *int*.
+3. The literals can be written in few bases, default one being decimal.
+4. Starting with Java 7, the underscore can bu used to simplify the read of literal.
+
+## References
+A reference point to an object by storing the memory address where the object is located.
+* A reference can be assigned to another object of same type.
+* A reference can be assigned to a new object using the `new` keyword.
+
+### Key differencies with primitives
+* The reference types can be assigned `null` value
+* Primitives do not have methods
+* All primitives has lowercase names
