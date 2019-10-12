@@ -389,6 +389,7 @@ For class variables, the rule same, avaialable as soon as defined and lives till
 
 ## Order of elements in class
 The following table define the rule:
+
 | Element             | Required | Where does it go                       |
 |:--------------------|:---------|:---------------------------------------|
 | Package declaration | No       | First line in file                     |
