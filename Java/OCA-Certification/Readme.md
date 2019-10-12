@@ -237,3 +237,173 @@ Constructor execution
 3. The order of initializer blocks **matter** 
 4. The code inside initializer block **cannot** refer to fields declared after the block.
 5. The constructor is execute after all iniliazer blocks and fields initialization.
+
+## Primitve Types
+Java define eight built-in data types also refered as primitve types:
+
+| Keyword | Type                  |
+|:--------|:----------------------|
+| boolean | true/false            |
+| byte    | 8-bit integer         |
+| short   | 16-bit integer        |
+| int     | 32-bit integer        |
+| long    | 64-bit integer        |
+| float   | 32-bit floating point |
+| double  | 64-bit floating point |
+| char    | 16-bit Unicode        |
+
+When the number is present in the code it is named *literal*. 
+By default value defined by literal is of type *int*.
+For example:
+
+```java
+long max = 3123456789; // Do not compile, the defined value is out of boundary for an int
+```
+A solution is to specify the type by adding `L` or `l` character which will indicate that is *Long*:
+```java
+long max = 3123456789L;
+```
+
+Java allow to specify numbers in different base.
+
+| Base        | Characters | Prefix   | Example      |
+|:------------|:-----------|:---------|:-------------|
+| Octal       | 0-7        | 0        | 017          |
+| Hexadecimal | 0-9, A-F   | 0X or 0x | 0xFF         |
+| Binary      | 0 and 1    | 0b or 0B | 0b11 or 0B11 |
+
+### Underscore in numbers (Java 7 feature)
+Starting with Java 7 it is possible to use underscore, `_` in order to simplify the read of numbers, like `1_000`.
+
+The underscore cannot be added:
+* At beginning of literal, `_1000.00`.
+* At end of literal, `1000.00_`.
+* Before and after decimal point, `1000_.00` or `1000._00`.
+
+### Summary
+1. Java have 8 types of primitives.
+2. The default value defined by literal is *int*.
+3. The literals can be written in few bases, default one being decimal.
+4. Starting with Java 7, the underscore can bu used to simplify the read of literal.
+
+## References
+A reference point to an object by storing the memory address where the object is located.
+* A reference can be assigned to another object of same type.
+* A reference can be assigned to a new object using the `new` keyword.
+
+### Key differencies with primitives
+* The reference types can be assigned `null` value
+* Primitives do not have methods
+* All primitives has lowercase names
+
+## Declaring and Initializing Variables
+Declaration of variable require the type and name to be stated.
+```java
+int size;
+String name;
+```
+
+A variable can be initialized during declaration:
+```java
+int size = 10;
+String name = "John";
+```
+
+Multiple variables can be declared and initialized in the same statement:
+```java
+int size, length = 10;
+String firstName, lastName = "Doe";
+```
+It is not possible to declare multiple variables of different type in one statment:
+```java
+int size, String name; // Do not compile
+```
+
+Multiple statements can be on one line:
+```java
+int size; String name;
+```
+
+The identifier naming shoudl follow following rules:
+* The name must begin with a letter, `_` or `$`.
+* Subsequent character can be number
+* Cannot use reserverd word.
+* Java is case sensitive, so there can be two identifiers having different case.
+
+### Local Variables
+
+A local variable is a variable defined within a method. 
+Local variables must be initialized before use. 
+They do not have a default value and contain garbage data until initialized. 
+The compiler will not let you read an uninitialized value.
+
+```java
+int y = 10;
+int x;
+int z = y + x; // Does not compile
+```
+
+### Instance and Class Variables
+Instance variables are also called *fields*.
+
+Class variables are destinguished by `static` keyword in declaration. All class variables are shared accross multiple objects.
+
+Instance and class variables get default value when they are declared and not initialized. In case of references it assign value `null` and in case of primitives `0`/`false`, for `char` it is `\u000` (NUL).
+
+| Variable Type          | Default Value |
+|:-----------------------|:--------------|
+| boolean                | false         |
+| byte, short, int, long | 0 (zero)      |
+| float, double          | 0.0           |
+| char                   | \u0000        |
+| Object references      | NULL          |
+
+### Summary
+1. Multiple variables of same type can be declared and initialized in same statement.
+2. Uninitialized local variables cannot be read, compilation will fail
+3. Instance and class variables which are not initialized, get default value
+
+## Variable Scope
+Local variables can never have a scope larger than the method they are defined in.
+However, they can have a smaller scope if it is inclosed in currly brackets.
+```java
+public void foo() {
+	int x;
+
+	{
+		int y;
+	}
+
+	int z = x + y; // Compilation error, variable y is not accessible
+}
+```
+
+In case of instance variables, they available as soon as they are defined (Take in consideration initializers blocks) and leaves till the end of the object.
+
+For class variables, the rule same, avaialable as soon as defined and lives till end of the program.
+
+### Summary
+1. Local variables - in scope from declaration till end of block.
+2. Instance variables - in scope from declaration until object garbage collected.
+3. Class variables - in scope from declaration until program ends.
+
+## Order of elements in class
+The following table define the rule:
+| Element             | Required | Where does it go                       |
+|:--------------------|:---------|:---------------------------------------|
+| Package declaration | No       | First line in file                     |
+| Import statements   | No       | Immediatelly after package declaration |
+| Class declaration   | Yes      | Immediatelly after import              |
+| Fields declaration  | No       | Anywere inside a class                 |
+| Methods declaration | No       | Anywere inside a class                 |
+| Comments            | No       | Anywere inside the file                |
+
+## Destroying Objects
+An object's memory is eligible for cleaning by GC when one of following condition occur:
+* The object no longer has any references pointing to it. 
+* All references to the object have gone out of scope. 
+
+Java API provide following API related to GC:
+* The system call `System.gc()` which do not guaranty Garbage Collection kick out, but suggest that is best time to do.
+* The `Object`'s method `finalize()` which **may** be called during Garbage Collection.
+Is it definitily this method will **not** be called twice.
