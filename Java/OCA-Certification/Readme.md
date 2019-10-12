@@ -302,9 +302,6 @@ Declaration of variable require the type and name to be stated.
 int size;
 String name;
 ```
-If variable is not initialized then default value is assigned.
-* For references it is `null`.
-* In case of primitives depend on the type, in case of `int` it will be zero (0).
 
 A variable can be initialized during declaration:
 ```java
@@ -317,3 +314,96 @@ Multiple variables can be declared and initialized in the same statement:
 int size, length = 10;
 String firstName, lastName = "Doe";
 ```
+It is not possible to declare multiple variables of different type in one statment:
+```java
+int size, String name; // Do not compile
+```
+
+Multiple statements can be on one line:
+```java
+int size; String name;
+```
+
+The identifier naming shoudl follow following rules:
+* The name must begin with a letter, `_` or `$`.
+* Subsequent character can be number
+* Cannot use reserverd word.
+* Java is case sensitive, so there can be two identifiers having different case.
+
+### Local Variables
+
+A local variable is a variable defined within a method. 
+Local variables must be initialized before use. 
+They do not have a default value and contain garbage data until initialized. 
+The compiler will not let you read an uninitialized value.
+
+```java
+int y = 10;
+int x;
+int z = y + x; // Does not compile
+```
+
+### Instance and Class Variables
+Instance variables are also called *fields*.
+
+Class variables are destinguished by `static` keyword in declaration. All class variables are shared accross multiple objects.
+
+Instance and class variables get default value when they are declared and not initialized. In case of references it assign value `null` and in case of primitives `0`/`false`, for `char` it is `\u000` (NUL).
+
+| Variable Type          | Default Value |
+|:-----------------------|:--------------|
+| boolean                | false         |
+| byte, short, int, long | 0 (zero)      |
+| float, double          | 0.0           |
+| char                   | \u0000        |
+| Object references      | NULL          |
+
+### Summary
+1. Multiple variables of same type can be declared and initialized in same statement.
+2. Uninitialized local variables cannot be read, compilation will fail
+3. Instance and class variables which are not initialized, get default value
+
+## Variable Scope
+Local variables can never have a scope larger than the method they are defined in.
+However, they can have a smaller scope if it is inclosed in currly brackets.
+```java
+public void foo() {
+	int x;
+
+	{
+		int y;
+	}
+
+	int z = x + y; // Compilation error, variable y is not accessible
+}
+```
+
+In case of instance variables, they available as soon as they are defined (Take in consideration initializers blocks) and leaves till the end of the object.
+
+For class variables, the rule same, avaialable as soon as defined and lives till end of the program.
+
+### Summary
+1. Local variables - in scope from declaration till end of block.
+2. Instance variables - in scope from declaration until object garbage collected.
+3. Class variables - in scope from declaration until program ends.
+
+## Order of elements in class
+The following table define the rule:
+| Element             | Required | Where does it go                       |
+|:--------------------|:---------|:---------------------------------------|
+| Package declaration | No       | First line in file                     |
+| Import statements   | No       | Immediatelly after package declaration |
+| Class declaration   | Yes      | Immediatelly after import              |
+| Fields declaration  | No       | Anywere inside a class                 |
+| Methods declaration | No       | Anywere inside a class                 |
+| Comments            | No       | Anywere inside the file                |
+
+## Destroying Objects
+An object's memory is eligible for cleaning by GC when one of following condition occur:
+* The object no longer has any references pointing to it. 
+* All references to the object have gone out of scope. 
+
+Java API provide following API related to GC:
+* The system call `System.gc()` which do not guaranty Garbage Collection kick out, but suggest that is best time to do.
+* The `Object`'s method `finalize()` which **may** be called during Garbage Collection.
+Is it definitily this method will **not** be called twice.
