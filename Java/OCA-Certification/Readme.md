@@ -76,7 +76,8 @@ Package names are written in all lower case to avoid conflict with the names of 
 Companies use their reversed Internet domain name to begin their package names, for example, `com.fuitcompany.fruit` for a package named mypackage created by a programmer at `com.fuitcompany`.
 
 The allowed naming rule is the same as for variables.
-A package can be of any length of unicode letter or digit. It should begin with letter, dollar sign (`$`) or underscore (`_`).
+A package can be of any length of unicode letter or digit. 
+It can begin with letter, dollar sign (`$`) or underscore (`_`).
 
 The package `java.lang` is auto imported and do not require explicit declaration.
 
@@ -252,12 +253,12 @@ Java define eight built-in data types also refered as primitve types:
 | double  | 64-bit floating point |
 | char    | 16-bit Unicode        |
 
-When the number is present in the code it is named *literal*. 
-By default value defined by literal is of type *int*.
+The number value presented in the code is called *literal*. 
+By default number value defined by literal is of type *int*.
 For example:
 
 ```java
-long max = 3123456789; // Do not compile, the defined value is out of boundary for an int
+long max = 3123456789; // Does not compile, the defined value is out of boundary for an int
 ```
 A solution is to specify the type by adding `L` or `l` character which will indicate that is *Long*:
 ```java
@@ -316,7 +317,7 @@ String firstName, lastName = "Doe";
 ```
 It is not possible to declare multiple variables of different type in one statment:
 ```java
-int size, String name; // Do not compile
+int size, String name; // Does not compile
 ```
 
 Multiple statements can be on one line:
@@ -325,7 +326,7 @@ int size; String name;
 ```
 
 The identifier naming shoudl follow following rules:
-* The name must begin with a letter, `_` or `$`.
+* The name can begin with a letter, `_` or `$`.
 * Subsequent character can be number
 * Cannot use reserverd word.
 * Java is case sensitive, so there can be two identifiers having different case.
@@ -408,3 +409,19 @@ Java API provide following API related to GC:
 * The system call `System.gc()` which do not guaranty Garbage Collection kick out, but suggest that is best time to do.
 * The `Object`'s method `finalize()` which **may** be called during Garbage Collection.
 Is it definitily this method will **not** be called twice.
+
+# Operators and Statements
+
+Java offer three flavours of operators:
+* Unary operator
+* Binary operator
+* Ternary operator
+
+Order of operator precedence:
+
+| Operator                        | Symbols and example        |
+|:--------------------------------|:---------------------------|
+| Post unary operators            | expression++, expression-- |
+| Pre-unary operators             | ++expression, --expression |
+| Other unary operators           | +,-,!                      |
+| Multiplication/Division/Modulus | *,/,%                      |
