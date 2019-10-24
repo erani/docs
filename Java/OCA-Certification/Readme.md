@@ -547,3 +547,49 @@ The equality operators are used in one of following cases:
 1. Comparing two numeric primitive values. The numeric promotion rules is applied incase values are not of the same type.
 2. Comparing two boolean values
 3. Comparing two objects, including `null` and `String` values.
+
+## Statements
+
+### The _if_-_then_ Statement
+The _if_-_then_ statement will execute a block of code in case it's boolean expression evaluates to `true`.
+```java
+if (booleanExpression) {
+	// Execute the code when expression evaluates to true
+}
+```
+
+### The _if_-_then_-_else_ Statement
+The _else_ block of the _if_-_then_-_else_ statement will execute in case the boolean expression do not evaluate to `true`.
+```java
+if (booleanExpression) {
+	// Execute the code when expression evaluates to true
+} else {
+	// Execute the code when expression evaluates to false
+}
+```
+
+It is possible to have compound _if_-_then_-_else_ statements:
+```java
+if (firstBooleanExpression) {
+	// Execute the code when first expression evaluates to true
+} else if (secondBooleanExpression) {
+	// Execute the code when second expression evaluates to true
+} else {
+	// Execute the code when neigher of above expressions evaluates to true
+}
+```
+
+### Ternary Operator
+The conditional operator `booleanExpression ? expression1 : expression2` is known as _ternary operator_.
+
+The first operand must be a _boolean expression_. The second and thrid can be any expression that return **same** value.
+
+**Note:** from Java 7, only one of the righ-hand expression is evaluated.
+```java
+int y = 1;
+int z = 1;
+
+int x = y < 10 ? y++ : z++; // Only y will be incremented
+
+int x = y > 10 ? y++ : z++; // Only z will be incremented
+```
