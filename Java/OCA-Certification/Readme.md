@@ -458,3 +458,92 @@ x++; // The result remain to be short
 ```
 4. After all promotions have occured and the operands have same data type, the resulting value will have same data type as its promoted operands.
 
+## Operators
+### Unary Operators
+The unary operation is applied only over one single variable:
+```java
+int x = 5;
+int y = +x; // y will be 5
+int z = -x; // z will be -5
+
+boolean v = true;
+boolean w = !v; // w will false
+````
+* Negation operator `+/-` reverse the sign of numeric value
+* Boolean negation operator `!` revers boolean value
+
+**Note:** It is not possible to mix negation operators between types.
+The `!` operator cannot be applied over numeric value as well as `+/-` operator to boolean value.
+
+### Assignment Operator
+The assignment operator is a binary operator which assigns value of right hand side to the left side of equation.
+```java
+int x = 10;
+```
+
+* Java will automatically promote from smaller to larger data types
+* In case of assignment of larger value to smaller, Java will throw a compiler exception
+
+### Casting Primitive Values
+Casting of primitives is required each time when larger value should be assigned to smaller value or converting from a floating-point number to an integer value.
+```java
+int x = (int) 1.0;
+short y = (short) 1921222;
+```
+
+#### Overflow
+When the larger value which do not fit into smaller value and it is casted to smaller value is also called **Overflow**;
+```java
+short y = (short) 1_921_222; // Will be stored as 20_678
+```
+
+### Compound Assignment Operator
+Compound assignment operator is a join between assignment operator and binary operator.
+
+Following two assignments are equivalent:
+```java
+x = x * z;
+x *= z;
+```
+
+* Compound operator can be applied only to variable which was defined
+* Cannot be used to declare new variable
+
+Compound operators can simplify the primitive casting:
+```java
+long x = 10;
+int y = 5;
+y = y * x; // Does not compile, requires cast to int
+y *= x; // Compiles
+```
+
+### Relational Operators
+Relational operators compares two expressions and return `boolean` value.
+
+The operators `<`, `<=`, `>`and `>=`applies over numeric data types. If the two numeric operands are not of the same data type, the smaller one is promoted to higher one.
+
+Another relational operator is `instanceof` which returns `true` if the reference that point to is an instance of a class, subclass or class that implements a particular interface.
+
+### Logical Operators
+The _logical operators_ (`&`, `|`, `ˆ`) may be applied on numeric and boolean  data types.
+* When applied on _boolean_ data types, they are refered as _logical operators_
+* When applied on _numeric_ data types, they are refered as _bitwise operators_
+
+The _conditional operators_ are `&&` and `||`. The difference between _logical_ and _conditional_ operators is that right-hand side of expression may not be evaluated if the result can be determinated from left-hand side.
+```java
+boolean x == true || y < 4; // The right-hand side is not evaluated
+```
+
+### Equality Operators
+The equal operators are: `==` and `!=`.
+
+Equality in Java have semantic difference:
+* Two objects are the same
+* Two objects are equivalent
+
+The above destinction is not present for numeric and boolean primitves.
+
+The equality operators are used in one of following cases:
+1. Comparing two numeric primitive values. The numeric promotion rules is applied incase values are not of the same type.
+2. Comparing two boolean values
+3. Comparing two objects, including `null` and `String` values.
