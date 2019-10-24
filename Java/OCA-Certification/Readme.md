@@ -1,4 +1,8 @@
 
+# Table of Contents
+1. [Java Building Blocks](#Java-Building-Blocks)
+2. [Operators and Statements](#Operators-and-Statements)
+
 # Java Building Blocks
 
 ## Java Classes vs Files
@@ -412,6 +416,7 @@ Is it definitily this method will **not** be called twice.
 
 # Operators and Statements
 
+# Operators
 Java offer three flavours of operators:
 * Unary operator
 * Binary operator
