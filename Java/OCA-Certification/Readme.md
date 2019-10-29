@@ -416,7 +416,7 @@ Is it definitily this method will **not** be called twice.
 
 # Operators and Statements
 
-# Operators
+## Operators
 Java offer three flavours of operators:
 * Unary operator
 * Binary operator
@@ -598,3 +598,72 @@ int x = y < 10 ? y++ : z++; // Only y will be incremented
 
 int x = y > 10 ? y++ : z++; // Only z will be incremented
 ```
+
+### The _switch_ Statement
+The `switch` statement supports following data types:
+* Numeric primitive types (`byte`, `short`, `char` and `int`)
+* Numeric wrapper types (`Byte`, `Short`, `Character`, `Integer`)
+* `Enum`
+* `String`
+
+**Note**: The `boolean`, `long` and theirs wrapper classes are not supported by `switch` statement.
+
+The values in each `case` statement must be compile-time constant values of the same data type as the `switch` value. By compile-time mean that variable should be `final`, the value cannot be computed in runtime.
+
+If the `break` statement is not present in the end of `case` block, then flow will continue to the next preceeding `case` or `default` block.
+
+Regardles of position within the `switch`, the `default` block will be executed when there is no matching `case` value.
+
+### The _while_ Statement
+
+The `while` loop may terminate at the first evaluation, which mean that statement block may never execute.
+
+### The _do-while_ Statement
+
+The `do`-`while` guarantee that statement block will execute at least once.
+
+### The _for_ Statements
+
+From Java 5.0 there are two types of `for` statement:
+* Basic `for` loop
+* Enhanced `for` loop or also known as `foreach` loop
+
+#### The basic _for_ statement
+The strucutre of the basic `for` statement is:
+```
+for (<initialization>; <boolean expression>; <update statement>)
+```
+
+The _initialization_ and _update_ sections may contain multiple statements separated by commas.
+
+Variables declared in the initialization block of a `for` loop have limited scope and
+are only accessible within the `for` loop. 
+
+It is not possible to rediclare the variable inside the `for` statement, for example:
+```java
+int x = 0;
+for (long y = 0, x = 4; x < 5; x++) { // Does not compile, cannot redicalre x variable
+	// Code
+}
+```
+
+It is not possible to declare different types of variables in initialization block, example:
+```java
+for (long x = 0, int y = 4; y < 5; y++) // Does not compile
+```
+
+#### The _for-each_ Statement
+The strucutre of the enhanced `for` statement is:
+```
+for (datatype instance : <collection>)
+```
+
+The right-hand side of the _for-each_ statement should be a built-in Java _array_ or an object which implements `java.lang.Iterable`.
+
+The left-hand side should be an instance of a variable, whose type matche the type of member of the array or Iterable in the right-hand side of the statement.
+
+### The _break_ Statement
+The `break` statement transfer the flow of control out of the enclosing statement. The statement can be part of `while`, `do`-`while` and `for` loops.
+
+### The _continue_ Statement
+The `continue` statement stops execution of current loop . The statement can be part of `while`, `do`-`while` and `for` loops.
