@@ -718,3 +718,119 @@ The `break` statement transfer the flow of control out of the enclosing statemen
 
 ### The _continue_ Statement
 The `continue` statement stops execution of current loop . The statement can be part of `while`, `do`-`while` and `for` loops.
+
+# Core Java APIs
+## Creating and Manipulating Strings
+A `String` in Java is a sequence of characters counted from `0` when indexed.
+
+The `String` class is a special class which does not require `new` keyword to be initialized:
+```java
+String name = "Fluffy";
+String name = new String("Fluffy");
+```
+Both statements give a reference to a `String` object, but there is a important difference. The first one uses _string pool_ second no.
+
+### Concatenation
+The string concatentenation is performed with a help of operator `+`.
+```java
+String fullName = "John"+ " " + "Doe"; // Produces "John Doe"
+```
+
+The Rules:
+* If both operands are numeric, `+` means numeric addition
+* If either operand is a `String`, `+` means concatenation
+* The expression is evaluated left to right
+
+### Immutablity
+
+Once a String object is created:
+* It is not allowed to change 
+* It cannot be made larger or smaller
+* It is not possible to change one of the characters inside it
+
+### The String Pool
+ The string pool, also known as the intern pool, is a location in the Java virtual machine (JVM) that collects all common strings which are declared like literals.
+
+ ```java
+String name = "Fluffy"; // Uses String pool
+String name = new String("Fluffy"); // Does not use String pool
+```
+
+Strings not in the string pool are garbage collected.
+
+### Important String Methods
+#### _length()_
+Returns the count of characters in `String`.
+```java
+int length();
+```
+
+#### _charAt()_
+Return the character located at specified index. The method may throw exception in case the an index out of boundary is provided.
+```java
+char charAt(int index);
+```
+
+#### _indexOf()_
+The method will return the index of the first occurence of provided value.
+```java
+int indexOf(char ch); // Returns index of first occurence of ch
+int indexOf(char ch, int fromIndex); // Return index of first occurence of ch after index fromIndex
+int indexOf(String str); // Return index of first occurence of provided String
+int indexOf(String str, int fromIndex); // Returns index of first occurence of provided String after index fromIndex
+```
+
+In case the occurence is not found, the method will return `-1`.
+
+#### _substring()_
+A part of the original `String` is returned.
+```java
+String substring(int beginIndex); // Returns part of String from provided index
+String substring(int beginIndex, int endIndex); // Return part of String from provided beginIndex till endIndex (exclusive)
+```
+The method may throw exception in case boundaries are exceeded or if the `endIndex` is less then `beginIndex`.
+
+**Trick:** The `string.substring(3, 3)` will return empty `String`.
+
+#### _toLowerCase()_ and _toUpperCase()_
+Both methods returns new `String` with respective case changed.
+```java
+"hello".toUpperCase(); // Will produce "HELLO"
+"HELLO".toLowerCase(); // Will produce "hello"
+```
+
+#### _equals()_ and _equalsIgnoreCase()_
+The method will verify the equality of base `String` with provided one.
+```java
+boolean equals(String str);
+boolean equalsIgnoreCase(String str);
+```
+
+#### _startsWith()_ and _endsWith()_
+The method will return `boolean` value which indicate if `String` starts with provided value, respectivily ends with provided value.
+```java
+boolean startsWith(String str);
+boolean endsWith(String str);
+```
+
+#### _contains()_
+Verify if provided `String` is part of the base `String`.
+```java
+boolean contains(String str);
+```
+
+#### _replace()_
+Return new object of type `String` which has replaced `char`/`CharSequence` with provided `char`/`CharSequence`.
+```java
+String replace(char oldChar, char newChar);
+String replace(CharSequence oldChar, CharSequence newChar);
+```
+
+#### _trim()_
+The method returns new `String` object without white characters in the beginning and end of the provided `String`.
+
+As white characters are considered `\n`, `\t` and  `\r`.
+
+```java
+String trim()
+```
