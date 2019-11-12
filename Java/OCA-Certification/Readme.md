@@ -835,12 +835,14 @@ As white characters are considered `\n`, `\t` and  `\r`.
 String trim()
 ```
 
-### The `StringBuilder`
+## The `StringBuilder`
 The `StringBuilder` is muttable class which does not create new object when each time it is modified. 
 
 The class has tow main properties:
 * __size__ - which indicate how many characters are added into the builder
 * __capacity__ - the number of characters the sequence can currently hold
+
+### Main methods
 
 The methods `charAt()`, `indexOf()`, `length()` and `substring()` works the same as for `String`.
 
