@@ -834,3 +834,51 @@ As white characters are considered `\n`, `\t` and  `\r`.
 ```java
 String trim()
 ```
+
+### The `StringBuilder`
+The `StringBuilder` is muttable class which does not create new object when each time it is modified. 
+
+The class has tow main properties:
+* __size__ - which indicate how many characters are added into the builder
+* __capacity__ - the number of characters the sequence can currently hold
+
+The methods `charAt()`, `indexOf()`, `length()` and `substring()` works the same as for `String`.
+
+#### `append()`
+The method appends provided value to the existing content. The are more then 10 method signatures.
+```java
+StringBuilder append(String str)
+```
+
+#### `insert()`
+Adds characters to the `StringBuilder` at the requested index and returns a reference to the current `StringBuilder`.
+```java
+StringBuilder insert(int pos, String str)
+```
+Throws `IndexOutOfBoundsException` - if the offset is invalid.
+
+#### `delete()`
+Removes characters from the sequence and returns a reference to the current `StringBuilder`.
+```java
+StringBuilder delete(int start, int end)
+```
+Throws `StringIndexOutOfBoundsException` - if start is negative, greater than length(), or greater than end.
+
+#### `deleteCharAt()`
+Removes character at provided position.
+```java
+StringBuilder deleteCharAt(int pos)
+```
+Throws `StringIndexOutOfBoundsException` - if the index is negative or greater than or equal to length().
+
+#### `reverse()`
+Reverses the characters in the sequences and returns a reference to the current `StringBuilder`.
+```java
+StringBuilder reverse()
+```
+
+#### `toString()`
+Converts the content of `StringBuilder` to `String`.
+```java
+String toString()
+```
