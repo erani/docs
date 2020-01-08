@@ -884,3 +884,5 @@ Converts the content of `StringBuilder` to `String`.
 ```java
 String toString()
 ```
+
+## Java Arrays
