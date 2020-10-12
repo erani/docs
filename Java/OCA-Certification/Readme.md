@@ -1,58 +1,88 @@
 
 # Table of Contents
 
-
+- [Table of Contents](#table-of-contents)
 - [Java Building Blocks](#java-building-blocks)
-    - [Java Classes vs Files](#java-classes-vs-files)
-    - [The entry point](#the-entry-point)
-    - [Packages](#packages)
-        - [Name convention & rules](#name-convention--rules)
-        - [Wildcard](#wildcard)
-        - [Redundant Imports](#redundant-imports)
-        - [Naming conflicts](#naming-conflicts)
-    - [Summary](#summary)
-    - [Objects](#objects)
-        - [Constructors](#constructors)
-        - [Instance Initializer Blocks](#instance-initializer-blocks)
-        - [Summary](#summary-1)
-    - [Primitve Types](#primitve-types)
-        - [Underscore in numbers (Java 7 feature)](#underscore-in-numbers-java-7-feature)
-        - [Summary](#summary-2)
-    - [References](#references)
-        - [Key differencies with primitives](#key-differencies-with-primitives)
-    - [Declaring and Initializing Variables](#declaring-and-initializing-variables)
-        - [Local Variables](#local-variables)
-        - [Instance and Class Variables](#instance-and-class-variables)
-        - [Summary](#summary-3)
-    - [Variable Scope](#variable-scope)
-        - [Summary](#summary-4)
-    - [Order of elements in class](#order-of-elements-in-class)
-    - [Destroying Objects](#destroying-objects)
+  * [Java Classes vs Files](#java-classes-vs-files)
+  * [The entry point](#the-entry-point)
+  * [Packages](#packages)
+    + [Name convention & rules](#name-convention---rules)
+    + [Wildcard](#wildcard)
+    + [Redundant Imports](#redundant-imports)
+    + [Naming conflicts](#naming-conflicts)
+  * [Summary](#summary)
+  * [Objects](#objects)
+    + [Constructors](#constructors)
+    + [Instance Initializer Blocks](#instance-initializer-blocks)
+    + [Summary](#summary-1)
+  * [Primitve Types](#primitve-types)
+    + [Underscore in numbers (Java 7 feature)](#underscore-in-numbers--java-7-feature-)
+    + [Summary](#summary-2)
+  * [References](#references)
+    + [Key differencies with primitives](#key-differencies-with-primitives)
+  * [Declaring and Initializing Variables](#declaring-and-initializing-variables)
+    + [Local Variables](#local-variables)
+    + [Instance and Class Variables](#instance-and-class-variables)
+    + [Summary](#summary-3)
+  * [Variable Scope](#variable-scope)
+    + [Summary](#summary-4)
+  * [Order of elements in class](#order-of-elements-in-class)
+  * [Destroying Objects](#destroying-objects)
 - [Operators and Statements](#operators-and-statements)
-    - [Operators](#operators)
-    - [Numeric Promotion Rules](#numeric-promotion-rules)
-    - [Operators](#operators-1)
-        - [Unary Operators](#unary-operators)
-        - [Assignment Operator](#assignment-operator)
-        - [Casting Primitive Values](#casting-primitive-values)
-            - [Overflow](#overflow)
-        - [Compound Assignment Operator](#compound-assignment-operator)
-        - [Relational Operators](#relational-operators)
-        - [Logical Operators](#logical-operators)
-        - [Equality Operators](#equality-operators)
-    - [Statements](#statements)
-        - [The _if_-_then_ Statement](#the-_if_-_then_-statement)
-        - [The _if_-_then_-_else_ Statement](#the-_if_-_then_-_else_-statement)
-        - [Ternary Operator](#ternary-operator)
-        - [The _switch_ Statement](#the-_switch_-statement)
-        - [The _while_ Statement](#the-_while_-statement)
-        - [The _do-while_ Statement](#the-_do-while_-statement)
-        - [The _for_ Statements](#the-_for_-statements)
-            - [The basic _for_ statement](#the-basic-_for_-statement)
-            - [The _for-each_ Statement](#the-_for-each_-statement)
-        - [The _break_ Statement](#the-_break_-statement)
-        - [The _continue_ Statement](#the-_continue_-statement)
+  * [Operators](#operators)
+  * [Numeric Promotion Rules](#numeric-promotion-rules)
+  * [Operators](#operators-1)
+    + [Unary Operators](#unary-operators)
+    + [Assignment Operator](#assignment-operator)
+    + [Casting Primitive Values](#casting-primitive-values)
+      - [Overflow](#overflow)
+    + [Compound Assignment Operator](#compound-assignment-operator)
+    + [Relational Operators](#relational-operators)
+    + [Logical Operators](#logical-operators)
+    + [Equality Operators](#equality-operators)
+  * [Statements](#statements)
+    + [The _if_-_then_ Statement](#the--if---then--statement)
+    + [The _if_-_then_-_else_ Statement](#the--if---then---else--statement)
+    + [Ternary Operator](#ternary-operator)
+    + [The _switch_ Statement](#the--switch--statement)
+    + [The _while_ Statement](#the--while--statement)
+    + [The _do-while_ Statement](#the--do-while--statement)
+    + [The _for_ Statements](#the--for--statements)
+      - [The basic _for_ statement](#the-basic--for--statement)
+      - [The _for-each_ Statement](#the--for-each--statement)
+    + [The _break_ Statement](#the--break--statement)
+    + [The _continue_ Statement](#the--continue--statement)
+- [Core Java APIs](#core-java-apis)
+  * [Creating and Manipulating Strings](#creating-and-manipulating-strings)
+    + [Concatenation](#concatenation)
+    + [Immutablity](#immutablity)
+    + [The String Pool](#the-string-pool)
+    + [Important String Methods](#important-string-methods)
+      - [_length()_](#-length---)
+      - [_charAt()_](#-charat---)
+      - [_indexOf()_](#-indexof---)
+      - [_substring()_](#-substring---)
+      - [_toLowerCase()_ and _toUpperCase()_](#-tolowercase----and--touppercase---)
+      - [_equals()_ and _equalsIgnoreCase()_](#-equals----and--equalsignorecase---)
+      - [_startsWith()_ and _endsWith()_](#-startswith----and--endswith---)
+      - [_contains()_](#-contains---)
+      - [_replace()_](#-replace---)
+      - [_trim()_](#-trim---)
+  * [The `StringBuilder`](#the--stringbuilder-)
+    + [Main methods](#main-methods)
+      - [`append()`](#-append---)
+      - [`insert()`](#-insert---)
+      - [`delete()`](#-delete---)
+      - [`deleteCharAt()`](#-deletecharat---)
+      - [`reverse()`](#-reverse---)
+      - [`toString()`](#-tostring---)
+  * [Equality](#equality)
+    + [Primitives equality](#primitives-equality)
+    + [Object equality](#object-equality)
+      - [String equality](#string-equality)
+  * [Java Arrays](#java-arrays)
 
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 # Java Building Blocks
 
@@ -836,7 +866,7 @@ String trim()
 ```
 
 ## The `StringBuilder`
-The `StringBuilder` is muttable class which does not create new object when each time it is modified. 
+The `StringBuilder` is mutable class which does not create new object when each time it is modified. 
 
 The class has tow main properties:
 * __size__ - which indicate how many characters are added into the builder
@@ -883,4 +913,66 @@ StringBuilder reverse()
 Converts the content of `StringBuilder` to `String`.
 ```java
 String toString()
+```
+
+## Equality
+### Primitives equality
+The operator `==` is used to check the primitive values for equality. 
+```java
+int x = 5;
+int y = 5;
+
+System.out.println(x == y); // Prints true
+```
+
+### Object equality
+In case of objects, the operator `==` would test the reference of the object, not the value of the object. 
+```java
+Integer x = 5;
+Integer y = 5;
+
+System.out.println(x == y); // Prints false
+```
+
+The `Object` type defines the method `public boolean equals(Object o)` which is supposed to return `true` in case the
+value of objects is equal or not. The inherited object should override the implementation of the method in order to implement
+proper test.
+```java
+Integer x = 5;
+Integer y = 5;
+
+System.out.println(x.equals(y)); // Prints true
+```
+
+#### String equality
+In case of `String` type, the equality by reference differs because of internal String pool. 
+For performance reason and memory savings Java will reuse same object from String Pool in case the literal is the same.
+```java
+String x = "Hello World";
+String y = "Hello World";
+
+System.out.println(x == y); // prints true
+System.out.println(x.equals(y)); // prints true
+```
+
+However, the `new` operator or runtime manipulation which would result in same String value will not reuse the String pool.
+```java
+String x = "Hello World";
+Stirng y = new String("Hello World");
+String z = " Hello World ".trim();
+
+System.out.println(x == y); // prints false
+System.out.println(x == z); // prints false
+System.out.println(y == z); // prints false
+```
+
+In above case the method `equals()` can be used.
+
+## Java Arrays
+
+A Java array is a sequence of elements of same base type.
+
+A variable of type array, is declared as:
+```java
+int[] iArray;
 ```
