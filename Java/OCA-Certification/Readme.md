@@ -976,3 +976,81 @@ A variable of type array, is declared as:
 ```java
 int[] iArray;
 ```
+
+### Array initialization
+An array can be initialized with fixed length. Each element will be initialized with defualt value.
+```java
+int[] iArray = new int[3];
+```
+
+An array also can be initialize with concrete values, like:
+```java
+int[] iArray = new int[] {1, 2, 3, 4, 5}
+```
+
+### Array equality
+An array is an object, the `equals()` method checks the reference, not the elements in array.
+```java
+int[] x = new int[] {1, 2, 3};
+int[] y = x;
+System.out.println(x.equals(y)); // print true
+```
+
+### Array printing
+The following code outputs something like
+```java
+int[] x = {"x", "y", "z"}
+System.out.println(x); // prints [Ljava.lang.String;@18ac088
+```
+The `[L` means that object is an array, the `java.lang.String` is the reference type and `18ac088` is the hash code of the object.
+
+From Java 5 the `java.util.Arrays.toString(myArray)` will print nicely.
+
+### Array casting
+Casting for arrays works by same principle like for ordinary objects.
+```java
+String[] days = new String[7];
+Object[] objects = days;
+String[] otherDays = (String[]) objects;
+otherDays[0] = new StringBuilder(); // Will not compile
+objects[0] = new StringBuilder(); // Will compile, but will fail in runtime
+```
+
+### Array boundaries
+Array index starts with `0`. If an element over the size of array is accessed, the `ArrayIndexOutOfBoundsException` is thrown.
+```java
+int[] x = new int[10];
+System.out.println(x[10]); // Throws ArrayIndexOutOfBoundsException, indexes are between 0 and 9
+```
+
+### Array sorting
+Standard library offers default implementation for array sorting:
+```java
+int[] myInts = new int[] {5, 2, 9};
+Arrays.sort(myInts);
+System.out.println(Arrays.toString(myInts)); // prints 2, 5, 9
+
+String myStrings = new String[] {"10", "9", "1"}
+Arrays.sort(myStrings);
+System.out.println(Arrays.toString(myStrings)); // prints "1", "10", "9"
+```
+Note that by default natural sorting is used.
+
+### Multidimensional array
+An array is an object as result a an array of arrays can be done,
+```java
+int[][] intArray1;
+int intArray2[][];
+int[] intArray3[];
+int[] intArray4[], intArray5[][]; // 2D and 3D array
+```
+
+The size of multidimensional array can be specified as:
+```java
+int[][] x = new int[2][3];
+```
+
+Multidimensional arrays are not mandatory to be of rectangular shape, following is valid:
+```java
+int[][] myArray = {{1, 2}, {3}, {5, 6, 7}};
+```
