@@ -1,2 +1,2 @@
 # Databases
-* p6spy - log native SQL from JDBC driver
+* p6spy - Log native SQL from JDBC driver<br />https://github.com/p6spy/p6spy
